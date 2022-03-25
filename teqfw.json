@@ -1,0 +1,14 @@
+{
+  "@teqfw/core": {
+    "plugin": {
+      "onInit": "Gtm_Base_Back_Plugin_Init",
+      "onStop": "Gtm_Base_Back_Plugin_Stop"
+    }
+  },
+  "@teqfw/di": {
+    "autoload": {
+      "ns": "Gtm_Base",
+      "path": "./src"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "@flancer32/gtm-base",
+  "version": "0.1.0",
+  "description": "Base package for GTM project contains data structures (RDB & IDB) and common code (for desktop & mobile apps).",
+  "homepage": "https://github.com/flancer32/gtm-base/",
+  "bugs": {
+    "url": "https://github.com/flancer32/gtm-base/issues",
+    "email": "alex@flancer32.com"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Alex Gusev",
+    "email": "alex@flancer64.com",
+    "url": "https://github.com/flancer64"
+  },
+  "repository": "github:flancer32/gtm-base",
+  "dependencies": {
+    "@teqfw/core": "*",
+    "@teqfw/db": "*",
+    "@teqfw/di": "*",
+    "@teqfw/i18n": "*",
+    "@teqfw/test": "*",
+    "@teqfw/ui-quasar": "*",
+    "@teqfw/vue": "*",
+    "@teqfw/web": "*",
+    "mysql2": "*"
+  }
+}
