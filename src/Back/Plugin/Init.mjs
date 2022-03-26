@@ -48,10 +48,10 @@ export default function Factory(spec) {
             }
 
             // MAIN
-            /** @type {Gtm_Desk_Back_Dto_Config_Local} */
+            /** @type {Gtm_Base_Back_Dto_Config_Local} */
             const cfg = config.getLocal(DEF.SHARED.NAME);
             await conn.init(cfg.db);
-            if (!await schemaExists() || true) { // TODO: remove 'true'
+            if (!await schemaExists()) {
                 logger.info(`There is no tables in RDB. Creating new RDB schema.`);
                 await procDbInit();
             }
