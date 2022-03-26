@@ -1,0 +1,14 @@
+/**
+ * Codifier for Task statuses.
+ * See "package.app.entity.task.attr.status" in "${root}/etc/teqfw.schema.json"
+ */
+const Gtm_Base_Shared_Enum_User_Role = {
+    COMPLETED: 'COMPLETED',
+    DISABLED: 'DISABLED',
+    NEW: 'NEW',
+    PENDING: 'PENDING',
+    PROGRESS: 'PROGRESS',
+}
+
+Object.freeze(Gtm_Base_Shared_Enum_User_Role);
+export default Gtm_Base_Shared_Enum_User_Role;

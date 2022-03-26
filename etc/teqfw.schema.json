@@ -1,0 +1,139 @@
+{
+  "package": {
+    "app": {
+      "entity": {
+        "graveyard": {
+          "comment": "Graveyards registry.",
+          "attr": {
+            "id": {"type": "id"},
+            "service_ref": {"type": "ref", "comment": "Responsible service.", "nullable": true}
+          },
+          "relation": {
+            "service": {
+              "attrs": ["service_ref"],
+              "ref": {"path": "/app/service", "attrs": ["id"]},
+              "action": {"delete": "cascade", "update": "cascade"}
+            }
+          }
+        },
+        "service": {
+          "comment": "Services registry (companies or persons).",
+          "attr": {
+            "id": {"type": "id"},
+            "status": {
+              "type": "enum", "comment": "Service status.",
+              "options": {
+                "values": ["COMP", "PERS"]
+              }
+            }
+          }
+        },
+        "task": {
+          "comment": "Tasks registry.",
+          "attr": {
+            "id": {"type": "id"},
+            "graveyard_ref": {"type": "ref"},
+            "status": {
+              "type": "enum", "comment": "Task status.",
+              "options": {
+                "values": ["COMPLETED", "DISABLED", "NEW", "PENDING", "PROGRESS"]
+              }
+            }
+          },
+          "relation": {
+            "graveyard": {
+              "attrs": ["graveyard_ref"],
+              "ref": {"path": "/app/graveyard", "attrs": ["id"]},
+              "action": {"delete": "cascade", "update": "cascade"}
+            }
+          }
+        },
+        "upload": {
+          "comment": "Uploads registry.",
+          "attr": {
+            "id": {"type": "id"},
+            "uuid": {"type": "string", "comment": "UUID as new name for upload."},
+            "name": {"type": "string", "comment": "Original name for upload."},
+            "date_created": {
+              "comment": "Date-time for upload was done.",
+              "type": "datetime",
+              "default": "current"
+            }
+          }
+        },
+        "user": {
+          "comment": "Users registry.",
+          "attr": {
+            "id": {"type": "id"},
+            "login": {"type": "string", "comment": "Name to authenticate."},
+            "password_hash": {"type": "string", "comment": "bcrypted hash of a password."},
+            "role": {
+              "type": "enum", "comment": "User role in the app.",
+              "options": {
+                "values": ["ADM", "COMP", "INSP", "PERS"]
+              }
+            },
+            "email": {"type": "string", "comment": "Email to get notifications."},
+            "name": {"type": "string", "comment": "Name to display."},
+            "date_created": {
+              "comment": "Date-time for user registration.",
+              "type": "datetime",
+              "default": "current"
+            }
+          }
+        }
+      },
+      "package": {
+        "service": {
+          "entity": {
+            "user": {
+              "comment": "Service-to-user relations. Each user can be a servicemen or a worker in a service company.",
+              "attr": {
+                "service_ref": {"type": "ref"},
+                "user_ref": {"type": "ref"}
+              },
+              "relation": {
+                "service": {
+                  "attrs": ["service_ref"],
+                  "ref": {"path": "/app/service", "attrs": ["id"]},
+                  "action": {"delete": "cascade", "update": "cascade"}
+                },
+                "user": {
+                  "attrs": ["user_ref"],
+                  "ref": {"path": "/app/user", "attrs": ["id"]},
+                  "action": {"delete": "cascade", "update": "cascade"}
+                }
+              }
+            }
+          }
+        },
+        "user": {
+          "entity": {
+            "session": {
+              "comment": "User-to-fronts relations. Each user can login from different devices (fronts), many users can login from one front.",
+              "attr": {
+                "user_ref": {"type": "ref"},
+                "front_ref": {"type": "ref"}
+              },
+              "relation": {
+                "front": {
+                  "attrs": ["front_ref"],
+                  "ref": {"path": "/web/front", "attrs": ["id"]},
+                  "action": {"delete": "cascade", "update": "cascade"}
+                },
+                "user": {
+                  "attrs": ["user_ref"],
+                  "ref": {"path": "/app/user", "attrs": ["id"]},
+                  "action": {"delete": "cascade", "update": "cascade"}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "refs": {
+    "/web/front": ["id"]
+  }
+}
