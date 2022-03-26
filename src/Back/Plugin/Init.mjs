@@ -20,12 +20,11 @@ export default function Factory(spec) {
     const crud = spec['TeqFw_Db_Back_Api_RDb_ICrudEngine$'];
     /** @type {TeqFw_Web_Back_Store_RDb_Schema_Front} */
     const rdbFront = spec['TeqFw_Web_Back_Store_RDb_Schema_Front$'];
-    // /** @type {Gtm_Base_Back_Proc_RDb_Init.process|function} */
-    // const procDbInit = spec['Gtm_Base_Back_Proc_RDb_Init$'];
+    /** @type {Gtm_Base_Back_Proc_RDb_Init.process|function} */
+    const procDbInit = spec['Gtm_Base_Back_Proc_RDb_Init$'];
 
     // FUNCS
     async function init() {
-        // FUNCS
         /**
          * Get local configuration and initialize DB connection.
          * Place connection object as 'TeqFw_Db_Back_RDb_IConnect' singleton to DI-container.
@@ -49,17 +48,17 @@ export default function Factory(spec) {
             }
 
             // MAIN
-            /** @type {Gtm_Base_Back_Dto_Config_Local} */
+            /** @type {Gtm_Desk_Back_Dto_Config_Local} */
             const cfg = config.getLocal(DEF.SHARED.NAME);
             await conn.init(cfg.db);
-            if (!await schemaExists()) {
+            if (!await schemaExists() || true) { // TODO: remove 'true'
                 logger.info(`There is no tables in RDB. Creating new RDB schema.`);
                 await procDbInit();
             }
         }
 
         // MAIN
-        // await initDb();
+        await initDb();
     }
 
     // MAIN
