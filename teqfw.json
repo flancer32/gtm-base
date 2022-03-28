@@ -9,6 +9,9 @@
     "autoload": {
       "ns": "Gtm_Base",
       "path": "./src"
+    },
+    "replace": {
+      "TeqFw_Core_Shared_Api_Logger_ITransport": {"back": "Gtm_Base_Back_Mod_Logger_Transport"}
     }
   }
 }
