@@ -1,5 +1,8 @@
 {
   "@teqfw/core": {
+    "commands": [
+      "Gtm_Base_Back_Cli_Db_Init"
+    ],
     "plugin": {
       "onInit": "Gtm_Base_Back_Plugin_Init",
       "onStop": "Gtm_Base_Back_Plugin_Stop"

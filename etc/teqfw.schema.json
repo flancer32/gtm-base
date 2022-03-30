@@ -6,7 +6,9 @@
           "comment": "Graveyards registry.",
           "attr": {
             "id": {"type": "id"},
-            "service_ref": {"type": "ref", "comment": "Responsible service.", "nullable": true}
+            "service_ref": {"type": "ref", "comment": "Responsible service.", "nullable": true},
+            "title": {"type": "string", "comment": "Graveyard name."},
+            "uuid": {"type": "string", "comment": "Graveyard UUID is generated on the front."}
           },
           "relation": {
             "service": {
@@ -20,12 +22,14 @@
           "comment": "Services registry (companies or persons).",
           "attr": {
             "id": {"type": "id"},
-            "status": {
-              "type": "enum", "comment": "Service status.",
+            "type": {
+              "type": "enum", "comment": "Service type.",
               "options": {
-                "values": ["COMP", "PERS"]
+                "values": ["COMPANY", "PERSON"]
               }
-            }
+            },
+            "title": {"type": "string", "comment": "Short name for the service."},
+            "uuid": {"type": "string", "comment": "Service UUID is generated on the front."}
           }
         },
         "task": {
@@ -38,7 +42,20 @@
               "options": {
                 "values": ["COMPLETED", "DISABLED", "NEW", "PENDING", "PROGRESS"]
               }
-            }
+            },
+            "title": {"type": "string", "comment": "Short name for the task."},
+            "date_created": {
+              "comment": "Date-time when task was created.",
+              "type": "datetime",
+              "default": "current"
+            },
+            "date_due": {
+              "comment": "Due date-time for the task.",
+              "type": "datetime"
+            },
+            "uuid": {"type": "string", "comment": "Task UUID is generated on the front."},
+            "image": {"type": "string", "comment": "Code to generate URL for related image."},
+            "desc": {"type": "text", "comment": "Task description."}
           },
           "relation": {
             "graveyard": {
