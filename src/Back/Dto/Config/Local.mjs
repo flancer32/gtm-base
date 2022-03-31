@@ -11,6 +11,11 @@ export default class Gtm_Base_Back_Dto_Config_Local {
     db;
     /** @type {string} */
     logsMonitor;
+    /**
+     * Path to the root of uploaded files storage (relative to project root or absolute).
+     * @type {string}
+     */
+    uploadRoot;
 }
 
 /**
@@ -34,6 +39,7 @@ export class Factory {
             const res = new Gtm_Base_Back_Dto_Config_Local();
             res.db = fDb.create(data?.db);
             res.logsMonitor = castString(data?.logsMonitor);
+            res.uploadRoot = castString(data?.uploadRoot);
             return res;
         }
     }

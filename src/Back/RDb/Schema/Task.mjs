@@ -20,7 +20,7 @@ const ATTR = {
     DESC: 'desc',
     GRAVEYARD_REF: 'graveyard_ref',
     ID: 'id',
-    IMAGE: 'image',
+    IMAGE_REF: 'image_ref',
     STATUS: 'status',
     TITLE: 'title',
     UUID: 'uuid',
@@ -33,7 +33,7 @@ const ATTR = {
 class Dto {
     static namespace = NS;
     /**
-     * UTC date when task was created in IDB.
+     * UTC date when task was created in DB.
      * @type {Date}
      */
     date_created;
@@ -58,10 +58,10 @@ class Dto {
      */
     id;
     /**
-     * Code to generate URL for related image.
-     * @type {string}
+     * Backend ID for related (main) image.
+     * @type {number}
      */
-    image;
+    image_ref;
     /**
      * @type {string}
      */
