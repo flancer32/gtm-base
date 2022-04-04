@@ -31,7 +31,12 @@ class Dto {
      * @type {Date}
      */
     date_created;
-        /**
+    /**
+     * Default extension for upload (by MIME).
+     * @type {string}
+     */
+    ext;
+    /**
      * Backend ID for upload itself.
      * @type {number}
      */

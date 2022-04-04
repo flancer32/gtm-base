@@ -75,6 +75,7 @@
           "attr": {
             "id": {"type": "id"},
             "uuid": {"type": "string", "comment": "UUID as new name for upload."},
+            "ext": {"type": "string", "comment": "Default extension for upload (by MIME)."},
             "date_created": {
               "comment": "Date-time when upload was registered.",
               "type": "datetime",

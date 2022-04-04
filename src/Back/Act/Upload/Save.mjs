@@ -61,7 +61,7 @@ export default function (spec) {
         if (!existsSync(_root)) mkdirSync(_root, {recursive: true});
         writeFileSync(file, b64File, {encoding: 'base64'});
         /** @type {Gtm_Base_Back_RDb_Schema_Upload.Dto} */
-        const dto = rdbUpload.createDto({uuid});
+        const dto = rdbUpload.createDto({uuid, ext});
         const {[A_UPLOAD.ID]: id} = await crud.create(trx, rdbUpload, dto);
         return {id, uuid};
     }
