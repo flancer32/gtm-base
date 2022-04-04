@@ -14,7 +14,7 @@ const ATTR = {
     DATE_DUE: 'dateDue',
     DESC: 'desc',
     GRAVEYARD: 'graveyard',
-    IMAGE_UUID: 'imageUuid',
+    IMAGE_NAME: 'imageName',
     STATUS: 'status',
     TITLE: 'title',
     UUID: 'uuid',
@@ -37,7 +37,7 @@ class Dto {
     /** @type {Gtm_Base_Shared_Dto_Graveyard.Dto} */
     graveyard;
     /** @type {string} */
-    imageUuid;
+    imageName;
     /** @type {typeof Gtm_Base_Shared_Enum_Task_Status} */
     status;
     /** @type {string} */
@@ -77,7 +77,7 @@ export default class Gtm_Base_Shared_Dto_Task {
             res.dateDue = castDate(data?.dateDue);
             res.desc = castString(data?.desc);
             res.graveyard = dtoGraveyard.createDto(data?.graveyard);
-            res.imageUuid = castString(data?.imageUuid);
+            res.imageName = castString(data?.imageName);
             res.status = castEnum(data?.status, STATUS);
             res.title = castString(data?.title);
             res.uuid = castString(data?.uuid);

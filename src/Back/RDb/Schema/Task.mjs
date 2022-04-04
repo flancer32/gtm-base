@@ -96,6 +96,12 @@ export default class Gtm_Base_Back_RDb_Schema_Task {
     }
 
     /**
+     * @param [data]
+     * @return {Gtm_Base_Back_RDb_Schema_Task.Dto}
+     */
+    createDto(data) {}
+
+    /**
      * @return {typeof Gtm_Base_Back_RDb_Schema_Task.ATTR}
      */
     getAttributes() {}

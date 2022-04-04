@@ -66,6 +66,12 @@ export default class Gtm_Base_Back_RDb_Schema_Graveyard {
     }
 
     /**
+     * @param [data]
+     * @return {Gtm_Base_Back_RDb_Schema_Graveyard.Dto}
+     */
+    createDto(data) {}
+
+    /**
      * @return {typeof Gtm_Base_Back_RDb_Schema_Graveyard.ATTR}
      */
     getAttributes() {}

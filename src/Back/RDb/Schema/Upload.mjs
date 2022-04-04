@@ -16,6 +16,7 @@ const ENTITY = '/app/upload';
  */
 const ATTR = {
     DATE_CREATED: 'date_created',
+    EXT: 'ext',
     ID: 'id',
     UUID: 'uuid',
 };
@@ -65,6 +66,12 @@ export default class Gtm_Base_Back_RDb_Schema_Upload {
             Dto
         );
     }
+
+    /**
+     * @param [data]
+     * @return {Gtm_Base_Back_RDb_Schema_Upload.Dto}
+     */
+    createDto(data) {}
 
     /**
      * @return {typeof Gtm_Base_Back_RDb_Schema_Upload.ATTR}
