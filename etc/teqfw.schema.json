@@ -54,7 +54,7 @@
               "type": "datetime"
             },
             "uuid": {"type": "string", "comment": "Task UUID is generated on the front."},
-            "image_ref": {"type": "ref", "comment": "Backend ID for related (main) image."},
+            "image_ref": {"type": "ref", "nullable": true, "comment": "Backend ID for related (main) image."},
             "desc": {"type": "text", "comment": "Task description."}
           },
           "relation": {

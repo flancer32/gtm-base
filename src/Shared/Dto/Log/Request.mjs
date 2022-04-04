@@ -2,7 +2,7 @@
  * DTO to send logs to monitoring server with POST requests.
  * see Fl64_Log_Agg_Shared_WAPI_Add.Request
  *
- * TODO: move this module to TeqFw_Web plugin.
+ * TODO: move this module to TeqFw_Web plugin or to standalone log-plugin.
  */
 // MODULE'S VARS
 const NS = 'Gtm_Base_Shared_Dto_Log_Request';
